@@ -5,7 +5,6 @@ const DetailsScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.details}>Details</Text>
-            <Text style={styles.details}>Drug Name</Text>
             <View style={styles.briefDetails}>
                 <Image source={require("../assets/images/samplePill.jpg")}
                     style={styles.img}

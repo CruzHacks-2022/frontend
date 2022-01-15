@@ -35,7 +35,11 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="Details" component={DetailsScreen} />
+      <Stack.Screen 
+        name="Details" 
+        component={DetailsScreen} 
+        // @ts-ignore
+        options={({route})=>({title: route.params.name})} />
     </Stack.Navigator>
   );
 }
