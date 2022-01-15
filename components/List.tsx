@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, FlatList, SafeAreaView, TouchableOpacity } from
 const List = (props: any) => {
 
     const go_details = (name: string) => {
-        props.navigation.navigate('details')
+        props.navigation.navigate('Details', {name})
     }
 
     // definition of the Item, which will be rendered in the FlatList
