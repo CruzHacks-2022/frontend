@@ -1,0 +1,25 @@
+[
+  {
+    "Name": "Zafirlukast",
+    "Brand": "Accolate",
+    "details": "Zafirlukast is used to prevent asthma symptoms. Zafirlukast is in a class of medications called leukotriene receptor antagonists (LTRAs). It works by blocking the action of certain natural substances that cause swelling and tightening of the airways. Keep this medication in the container it came in, tightly closed, and out of reach of children. Store it at room temperature and away from light, excess heat, and moisture (not in the bathroom) .",
+    "symptoms": [
+      "headache",
+      "nausea",
+      "loss of appetite",
+      "pain in the right upper part of your stomach",
+      "excessive tiredness",
+      "lack of energy",
+      "itching",
+      "yellowing of the skin or eyes",
+      "flu-like symptoms",
+      "rash",
+      "swelling of the eyes, face, lips, tongue, or throat",
+      "difficulty breathing or swallowing",
+      "hoarseness",
+      "pain, burning, numbness, or tingling in the hands or feet"
+    ],
+    "OverdoseText": "In case of overdose, call the poison control helpline at 1-800-222-1222. Information is also available online at https://www.poisonhelp.org/help. If the victim has collapsed, had a seizure, has trouble breathing, or can't be awakened, immediately call emergency services at 911.",
+    "Overdose": ["nausea", "rash"]
+  }
+]

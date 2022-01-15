@@ -1,29 +1,42 @@
 import React from "react"
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import dummyData from '../constants/dummyData.json'
 
-const DetailsScreen = () => {
+const DetailsScreen = ({route}:any) => {
+    let data = [] as any
+    const { name } = route.params
+    for (let i = 0; i < dummyData.length; i++) {
+        if (dummyData[i].Name === name) {
+            data = dummyData[i]
+        }
+    }
     return (
-        <View style={styles.container}>
-            <Text style={styles.details}>Details</Text>
+        <ScrollView style={styles.container}>
+            <Text>{data.Brand}</Text>
+            <Text style={styles.details}>{data.details}</Text>
             <View style={styles.briefDetails}>
                 <Image source={require("../assets/images/samplePill.jpg")}
                     style={styles.img}
                     resizeMode="center"
                 ></Image>
-                <View style={styles.pillDetals}>
-                    <Text style={styles.pillDetals}>Details: Details</Text>
-                    <Text style={styles.pillDetals}>Details: Details</Text>
-                    <Text style={styles.pillDetals}>Details: Details</Text>
-                </View>
             </View>
 
-            <Text style={styles.pillDetals}>Overdose Signs: signs, signs, signs</Text>
+            <Text style={styles.pillDetals}>Overdose Signs:</Text>
+            {data.Overdose.map((e:any)=>{
+                return (
+                    <Text>{e}</Text>
+                )
+            })}
 
             <View style={styles.briefDetails}>
                 <View style={styles.pillDetals}>
                     <Text style={styles.sideEffects}>Sideeffects</Text>
-                    <Text style={styles.pillDetals}>Details: Details</Text>
-                    <Text style={styles.pillDetals}>Details: Details</Text>
+                    {data.symptoms.map((e:any)=>{
+                        return (
+                            <Text>{e}</Text>
+                        )
+                    })}
+                    <Text>{data.OverdoseText}</Text>
                 </View>
                 <Image source={require("../assets/images/chemFormula.png")}
                     style={styles.img}
@@ -31,7 +44,7 @@ const DetailsScreen = () => {
                 ></Image>
             </View>
 
-        </View>
+        </ScrollView>
     )
 }
 
@@ -40,7 +53,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
     details: {
-        fontSize: 40,
+        fontSize: 20,
         fontWeight: "bold",
         display: "flex",
         justifyContent: "center",

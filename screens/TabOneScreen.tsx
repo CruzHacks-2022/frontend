@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
+import dummyData from '../constants/dummyData.json'
 
 import SearchBar from '../components/SearchBar';
 import List from '../components/List'
@@ -14,11 +15,8 @@ const TabOneScreen = ({ navigation }: any) => {
 
   useEffect(() => {
     const getData = async () => {
-      const apiResponse = await fetch(
-        "https://api.fda.gov/drug/drugsfda.json?count=openfda.brand_name.exact&limit=5000"
-      );
-      const data = await apiResponse.json();
-      setData(data);
+      // @ts-ignore
+      setData(dummyData);
     };
     getData();
   }, []);
