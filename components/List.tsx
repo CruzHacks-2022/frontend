@@ -49,6 +49,18 @@ const List = (props: any) => {
                     renderItem={renderItem}
                     keyExtractor={keyExtractor}
                 />
+                <FlatList
+                    data={props.data}
+                    // @ts-ignore   
+                    renderItem={renderItem}
+                    keyExtractor={keyExtractor}
+                />
+                <FlatList
+                    data={props.data}
+                    // @ts-ignore   
+                    renderItem={renderItem}
+                    keyExtractor={keyExtractor}
+                />
             </View>}
         </SafeAreaView>
     );
@@ -63,19 +75,34 @@ const styles = StyleSheet.create({
         height: "85%",
         width: "100%",
     },
+
     item: {
         margin: 30,
+        marginVertical: 10,
         borderBottomWidth: 2,
-        borderBottomColor: "lightgrey"
+        borderBottomColor: "#A89c94FF",
+        flexDirection: "row",
+        paddingBottom: 10,
     },
     title: {
         fontSize: 20,
         fontWeight: "bold",
-        marginBottom: 5,
-        fontStyle: "italic",
+        width: "70%",
+        elevation: 10,
     },
     details: {
-        paddingLeft: 0
+        padding: 3,
+        minWidth: "30%",
+        borderRadius: 90,
+        borderWidth: 2,
+        borderColor: "#A89c94FF",
+        alignSelf: "flex-end",
+        textAlign: "center",
+        shadowColor: '#ccc',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        elevation: 10,
     }
 });
 
