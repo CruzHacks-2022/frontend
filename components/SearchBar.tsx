@@ -51,14 +51,16 @@ const styles = StyleSheet.create({
         padding: 10,
         flexDirection: "row",
         width: "100%",
-        backgroundColor: "#d9dbda",
-        borderRadius: 15,
+        backgroundColor: "#cfd1d0",
+        borderRadius: 90,
+        borderColor: "#0c0c0c",
         alignItems: "center",
         justifyContent: "space-evenly",
     },
     input: {
         fontSize: 20,
         marginLeft: 20,
+        color: "#0c0c0c",
         width: "90%",
     },
-});
+})
