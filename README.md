@@ -5,10 +5,9 @@ Albert's father suffers from diabetes. He has to take a lot of pills in order to
 Remedia allows users to locate information about their medications through 3 methods:
 - Taking a picture of your medication
 - Searching the brand name (e.g. Advil) or the scientific name (e.g. Ibuprofen)
-- Selecting the feature of a pill such as color, 
-When the user does the following, they are given information about the medication and provided its side-effects and 
-
-## ⚙️ How we built it
+- Selecting the feature of a pill such as color, imprint, and shape
+- 
+When the user does the following, they are given information about the medication and provided its  How we built it
 
 - React Native: For cross platform mobile application
 - Python: For scraping data from the web
