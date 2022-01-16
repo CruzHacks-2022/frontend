@@ -5,14 +5,31 @@ Albert's father suffers from diabetes. He has to take a lot of pills in order to
 Remedia allows users to locate information about their medications through 3 methods:
 - Taking a picture of your medication
 - Searching the brand name (e.g. Advil) or the scientific name (e.g. Ibuprofen)
-- Selecting the feature of a pill such as color, imprint, and shape
-- 
-When the user does the following, they are given information about the medication and provided its  How we built it
+- Selecting the feature of a pill such as color, imprint, shape
 
-- React Native: For cross platform mobile application
-- Python: For scraping data from the web
-- Google Cloud Vision API: For image recognition
-- Expo: To simplify the running of the application
+When the user does the following, they are given information about the medication and provided the following information:
+
+- How to store the medication
+- Side-effects (color-coded based on the severity)
+- Signs of Overdose
+- What to do if you or a loved one is experiencing an overdose
+
+## ⚙️ How we built it
+To allow for our app to work online, we used:
+- Flask
+- Docker
+- Google Cloud Run
+
+We used React Native and Expo to develop our cross-platform 
+
+To develop the scraper, we used:
+- Beautiful Soup Library
+- Python
+- Data from [Drugs.com](https://www.drugs.com/pill_identification.html) (for Pill Identification) and [MedlinePlus](https://medlineplus.gov/druginformation.html) (for Drug Information)
+
+We used the Google Could Vision API to recognize the medication and that API talks to the scraper which finds the drugs that are the closest match.
+
+To design the application we used React Native and Expo as they were scalable frameworks that allow us to develop cross-platform apps.
 
 ## 🧠 Challenges we ran into
 
