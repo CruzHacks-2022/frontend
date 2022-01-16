@@ -27,13 +27,15 @@ To develop the scraper, we used:
 - Python
 - Data from [Drugs.com](https://www.drugs.com/pill_identification.html) (for Pill Identification) and [MedlinePlus](https://medlineplus.gov/druginformation.html) (for Drug Information)
 
-We used the Google Could Vision API to recognize the medication and that API talks to the scraper which finds the drugs that are the closest match.
+We used the Google Cloud Vision API to recognize the medication and that API talks to the scraper which finds the drugs that are the closest match.
 
 To design the application we used React Native and Expo as they were scalable frameworks that allow us to develop cross-platform apps.
 
 ## 🧠 Challenges we ran into
-- 
-- Scraping the data
+- Pill Identification: This as one of our hardest issues. Our initial plans included 
+- Web Scraping: As Albert eloquently stated, "Web scraping is hard." We ran into a lot of issues with web scraping, such as handling data, and ensuring proper formatting as trademark symbols would mess things up. It took a lot of delicate handling and formatting in order to ensure any data that was scraped would not break the design of our application.
+- Altering the design: While this wasn't our most difficult challenge, we ran into issues with designing our application as running the app on Web (which it wasn't designed to do) led to the contents of the main page being autoscrolled down. To fix this, we designed with static data and then once we completed designing, we added our dynamic data and everything went smoothly.
+- Time: We did not have a lot of time on our hands. This pushed us to do planning early on because as opposed to creating eveyr little feature possible, we looked at our goals and crafted a plan for our MVP (Minimum Viable Product) and then certain additions we can add if time permits us to do so. We were able to create our MVP with time left, and thus we proceeded with our modified version of pill identification.
 
 ## 🏅 Accomplishments that we're proud of
 
@@ -44,12 +46,12 @@ To design the application we used React Native and Expo as they were scalable fr
 - Creating a scalable application that lets us add more features that will make this app even more useful.
 
 ## 📖 What we learned
-- Albert:
-- Ankur:
-- Ameya:
-- Harshal:
+- Albert: 
+- Ameya: 
+- Ankur: 
+- Harshal: 
 
 ## 🚀 What's next for Remedia
 We're genuinely just scratching the surface with Remedia. We have two features we plan on adding:
-- Letting users take an image of their pill for search:  
+- Letting users take an image of their pill for search: 
 - Creating a medication scheduler: 
