@@ -5,6 +5,8 @@ import ImageContext from './hooks/imageContext';
 import useCachedResources from './hooks/useCachedResources';
 import Navigation from './navigation';
 
+import DetailsScreen from './screens/DetailsScreen';
+
 const Pic = {
   uri: '',
   isLoading: false,
@@ -27,8 +29,9 @@ export default function App() {
     return (
       <ImageContext.Provider value={store}>
         <SafeAreaProvider>
-          <Navigation />
-          <StatusBar />
+          {/* <Navigation />
+          <StatusBar /> */}
+          <DetailsScreen />
         </SafeAreaProvider>
       </ImageContext.Provider>
     );

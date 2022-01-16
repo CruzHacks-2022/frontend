@@ -6,13 +6,13 @@ import {Linking} from 'react-native'
 const DetailsScreen = ({ route }: any) => {
     const [ifLoad, setIfLoad] = useState(true)
     const [data, setData] = useState([] as any)
-    const { name } = route.params
+    // const { name } = route.params
 
     useEffect(() => {
         (async () => {
             var formData = new FormData();
 
-            formData.append("brand", name);
+            // formData.append("brand", name);
 
             const req = await fetch('https://webscraper-service-gkv32wdswa-ue.a.run.app/multi', {
                 method: 'POST',
@@ -63,7 +63,6 @@ const DetailsScreen = ({ route }: any) => {
                     <View style={styles.infoBox}>
                         <Image source={require("../assets/images/timeLogo.svg")} style={styles.inOverdoseSymptoms
                     </View>
-                </View> */}
 
                 {/* <Text style={styles.drugName}>About Drug</Text> */}
                 
@@ -92,19 +91,20 @@ const DetailsScreen = ({ route }: any) => {
 
                         <Text style={styles.phone} onPress={()=>{Linking.openURL('tel:+1 (800) 222-1222');}}>Poison Control Phone Number: +1 (800) 222-1222</Text>
 
-                        <Text style={styles.sideEffects}>Side-Effects</Text>
+                            <Text style={styles.sideEffects}>Side-Effects</Text>
 
                         
                         
                         <HorizontalScroll data={data} effects={data.CombinedEffects} numColumns={5} />
 
-                        <Text style={styles.sideEffects}>Overdose Signs:</Text>
+                            <Text style={styles.sideEffects}>Overdose Signs:</Text>
 
-                        <HorizontalScroll data={data} effects={data.OverdoseSymptoms} numColumns={3} />
+                            <HorizontalScroll data={data} effects={data.OverdoseSymptoms} numColumns={3} />
 
+                            {/* <Text style={{marginTop: 20}}>{data.BrandNames}</Text> */}
+
+                        </View>
                     </View>
-                </View>
-
             </ScrollView>
             ):
             <ActivityIndicator size="large" color="#246EE9" style={{ flex: 1, alignSelf: 'center' }} />
