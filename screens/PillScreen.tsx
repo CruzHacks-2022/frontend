@@ -30,6 +30,7 @@ export default function CameraScreen({ navigation }: any) {
     const [zoom, setZoom] = useState(0)
     const [isLoading, setIsLoading] = useContext(ImageContext).isLoading
     const [uri, setUri] = useContext(ImageContext).uri
+    const [catIndex, setCatIndex] = useState(0)
 
     const isFocused = useIsFocused();
 
@@ -153,6 +154,11 @@ export default function CameraScreen({ navigation }: any) {
         })();
     }, []);
 
+    const Round = 0
+    const Capsule = 1
+    const Oval = 2
+    const Egg = 3
+
     return (<>
         <PinchGestureHandler
             onGestureEvent={handleEvent}
@@ -171,29 +177,37 @@ export default function CameraScreen({ navigation }: any) {
                     <Grid style={styles.topToolbar}>
                         <Row>
                             <Col style={styles.alignCenter}>
-                                <View style={{ height: 30, width: 30, borderRadius: 15, backgroundColor: 'white' }} />
-                                <Text style={{ color: 'white' }}>Round</Text>
+                                <TouchableOpacity onPress={() => { setCatIndex(Round) }}>
+                                    <View style={{ height: 30, width: 30, borderRadius: 15, backgroundColor: catIndex === Round ? "#7FDBFF" : "white" }} />
+                                    <Text style={{ color: 'white' }}>Round</Text>
+                                </TouchableOpacity>
                             </Col>
                             <Col style={styles.alignCenter}>
-                                <View style={{ height: 15, width: 30, borderRadius: 15, backgroundColor: 'white' }} />
-                                <Text style={{ color: 'white' }}>Capsule</Text>
+                                <TouchableOpacity onPress={() => { setCatIndex(Capsule) }}>
+                                    <View style={{ height: 15, width: 30, borderRadius: 15, backgroundColor: catIndex === Capsule ? "#7FDBFF" : "white" }} />
+                                    <Text style={{ color: 'white' }}>Capsule</Text>
+                                </TouchableOpacity>
                             </Col>
                             <Col style={styles.alignCenter}>
-                                <View style={{ height: 15, width: 30, borderRadius: 7.5, backgroundColor: 'white' }} />
-                                <Text style={{ color: 'white' }}>Oval</Text>
+                                <TouchableOpacity onPress={() => { setCatIndex(Oval) }}>
+                                    <View style={{ height: 15, width: 30, borderRadius: 7.5, backgroundColor: catIndex === Oval ? "#7FDBFF" : "white" }} />
+                                    <Text style={{ color: 'white' }}>Oval</Text>
+                                </TouchableOpacity>
                             </Col>
                             <Col style={styles.alignCenter}>
-                                <View style={{
-                                    width: 180 / 5,
-                                    height: 126 / 5,
-                                    backgroundColor: "white",
-                                    borderTopLeftRadius: 95 / 5,
-                                    borderTopRightRadius: 95 / 5,
-                                    borderBottomLeftRadius: 108 / 5,
-                                    borderBottomRightRadius: 108 / 5,
-                                }}
-                                />
-                                <Text style={{ color: 'white' }}>Egg</Text>
+                                <TouchableOpacity onPress={() => { setCatIndex(Egg) }}>
+                                    <View style={{
+                                        width: 180 / 5,
+                                        height: 126 / 5,
+                                        backgroundColor: catIndex === Egg ? "#7FDBFF" : "white",
+                                        borderTopLeftRadius: 95 / 5,
+                                        borderTopRightRadius: 95 / 5,
+                                        borderBottomLeftRadius: 108 / 5,
+                                        borderBottomRightRadius: 108 / 5,
+                                    }}
+                                    />
+                                    <Text style={{ color: 'white' }}>Egg</Text>
+                                </TouchableOpacity>
                             </Col>
                         </Row>
                     </Grid>
@@ -267,6 +281,7 @@ const styles = StyleSheet.create({
     alignCenter: {
         flex: 1,
         alignItems: 'center',
+
         justifyContent: 'center',
     },
     bottomToolbar: {

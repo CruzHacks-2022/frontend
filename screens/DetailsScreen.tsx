@@ -36,10 +36,13 @@ const DetailsScreen = ({ route }: any) => {
         !ifLoad ?
 
             (<ScrollView style={styles.container}>
-                <Text style={styles.details}>{data.details}</Text>
+                
 
                 <View style={styles.briefDetails}>
                     <View style={styles.pillDetals}>
+                    <Text>{data.Name}</Text>
+                    <Text style={styles.details}>{data.details}</Text>
+                        
                         <Text style={{marginBottom: 20}}>{data.Diet}</Text>
 
                         <Text style={{marginBottom: 20}}>{data.Overdose}</Text>
@@ -55,7 +58,7 @@ const DetailsScreen = ({ route }: any) => {
 
                         <HorizontalScroll data={data} effects={data.OverdoseSymptoms} numColumns={3} />
 
-                        <Text style={{marginTop: 20}}>{data.BrandNames}</Text>
+                        {/* <Text style={{marginTop: 20}}>{data.BrandNames}</Text> */}
 
                     </View>
                 </View>
