@@ -1,3 +1,6 @@
+# FRONT END
+This branch is the one shown in the dev post
+
 ## 💡 Inspiration
 Albert's father suffers from diabetes. He has to take a lot of pills in order to deal with it. However this leads to a lot of confusion in keeping track of each pill and what it does. Mr. Lee's plight is also the plight of many others, and it can lead to fatality. Every year, 7,000 to 9,000 people die from accidentally taking the wrong mediciation. Thus we felt it was important to develop a way to solve this problem and ensure we can provide information about medications in a timely manner without difficulty.
 
