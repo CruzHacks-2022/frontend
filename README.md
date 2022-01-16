@@ -54,5 +54,5 @@ To design the application we used React Native and Expo as they were scalable fr
 
 ## 🚀 What's next for Remedia
 We're genuinely just scratching the surface with Remedia. We have two features we plan on adding:
-- Letting users take an image of their pill for search: 
-- Creating a medication scheduler: 
+- Letting users take an image of their pill for search: We wanted to have that feature work just like the medication box. We had to use our workaround fo the radio buttons, but we hope to fix the shortcomings we faced in the future. 
+- Creating a medication scheduler: We plan to make a scheduling feature that uses the information provided by our data in order to have a calendar that lets users know when to take their medication. This feature would expand usability of our app even further. 
