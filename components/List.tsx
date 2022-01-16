@@ -1,11 +1,33 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { StyleSheet, Text, View, FlatList, SafeAreaView, TouchableOpacity } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import dummyData from '../constants/dummyData.json'
 
 // the filter
 const List = (props: any) => {
 
+    const [data, setData] = useState([] as any)
+
+    useEffect(() => {
+        if (props.searchPhrase === "") {
+            setData(dummyData)
+        }
+        else {
+            let ans = []
+            for (let i = 0; i < dummyData.length; i++) {
+                if (dummyData[i].toUpperCase().startsWith(props.searchPhrase.toUpperCase().trim())) {
+                    ans.push(dummyData[i])
+                }
+                if (ans.length > 50) {
+                    break;
+                }
+            }
+            setData(ans)
+        }
+    }, [props.searchPhrase])
+
     const go_details = (name: string) => {
-        props.navigation.navigate('Details', {name})
+        props.navigation.navigate('Details', { name })
     }
 
     // definition of the Item, which will be rendered in the FlatList
@@ -29,7 +51,7 @@ const List = (props: any) => {
             return <Item name={item} />;
         }
         // filter of the name
-        if (item.toUpperCase().includes(props.searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
+        if (item.toUpperCase().startsWith(props.searchPhrase.toUpperCase().trim())) {
             return <Item name={item} />;
         }
 
@@ -38,12 +60,35 @@ const List = (props: any) => {
     return (
         <SafeAreaView style={styles.list__container}>
             {props.data && <View>
-                <FlatList
-                    data={props.data}
-                    // @ts-ignore   
-                    renderItem={renderItem}
-                    keyExtractor={keyExtractor}
-                />
+                {data.length > 200 ?
+
+                    <FlatList
+                        data={props.data}
+                        // @ts-ignore   
+                        renderItem={({ item }) => {
+                            // when no input, show all
+                            if (props.searchPhrase === "") {
+                                return <Item name={item} />;
+                            }
+                            // filter of the name
+                            if (item.toUpperCase().startsWith(props.searchPhrase.toUpperCase().trim())) {
+                                return <Item name={item} />;
+                            }
+                        }}
+                        keyExtractor={keyExtractor}
+                    />
+
+                    :
+
+
+                    <ScrollView>
+                        {data.map((e: any, index: any) => {
+                            return (
+                                <Item key={index} name={e} />
+                            )
+                        })}
+                    </ScrollView>
+                }
             </View>}
         </SafeAreaView>
     );
