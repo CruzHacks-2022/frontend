@@ -101,7 +101,7 @@ export default function CameraScreen({ navigation }: any) {
 
     const visionData = await visionRequest.json()
     const data = visionData.responses[0].fullTextAnnotation
-
+    console.log(visionData)
     let words = []
 
     for (let i = 0; i < data.pages.length; i++) {
