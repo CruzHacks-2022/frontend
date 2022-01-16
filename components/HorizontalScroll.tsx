@@ -9,6 +9,9 @@ const HorizontalScroll = ({data, effects, numColumns}:any) => {
         [data]
     )
     return (
+        
+            effects.length !== 0 ?
+
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <FlatList
                 data={effects}
@@ -41,6 +44,9 @@ const HorizontalScroll = ({data, effects, numColumns}:any) => {
                 }}
             />
         </ScrollView>
+        :
+        <Text>empty</Text>
+        
     )
 }
 

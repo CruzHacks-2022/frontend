@@ -35,7 +35,6 @@ const List = (props: any) => {
         return (
             <TouchableOpacity style={styles.item} onPress={() => go_details(name)}>
                 <Text style={styles.title}>{name}</Text>
-                <Text style={styles.details}>{details}</Text>
             </TouchableOpacity>
         )
     }
@@ -44,6 +43,7 @@ const List = (props: any) => {
         (item, index) => index.toString(),
         [props.data]
     )
+
 
     return (
         <SafeAreaView style={styles.list__container}>

@@ -37,12 +37,12 @@ const DetailsScreen = ({ route }: any) => {
             (<ScrollView style={styles.container}>
 
 <View style={styles.imgContainer}>
-                    <Image source={require("../assets/images/samplePill.jpg")} style={styles.image} />
+                    {/* <Image source={require("../assets/images/samplePill.jpg")} style={styles.image} /> */}
                 </View>
 
-                <Text style={styles.drugName}>Name of Drug</Text>
+                <Text style={styles.drugName}>{data.Name}</Text>
 
-                <View style={styles.infoContainer}>
+                {/* <View style={styles.infoContainer}>
                     <View style={styles.infoBox}>
                         <Image source={require("../assets/images/pillLogo.svg")} style={styles.infoBoxStyle} />
                         <Text style={styles.info}>2 x pills</Text>
@@ -52,13 +52,12 @@ const DetailsScreen = ({ route }: any) => {
                         <Image source={require("../assets/images/timeLogo.svg")} style={styles.infoBoxStyle} />
                         <Text style={styles.info}>2.5 mg</Text>
                     </View>
-                </View>
+                </View> */}
 
-                <Text style={styles.drugName}>About Drug</Text>
+                {/* <Text style={styles.drugName}>About Drug</Text> */}
 
                 <View style={styles.briefDetails}>
                     <View style={styles.pillDetals}>
-                    <Text>{data.Name}</Text>
                     <Text style={styles.details}>{data.details}</Text>
                         
                         <Text style={{marginBottom: 20}}>{data.Diet}</Text>
@@ -73,8 +72,6 @@ const DetailsScreen = ({ route }: any) => {
                         <Text style={styles.sideEffects}>Overdose Signs:</Text>
 
                         <HorizontalScroll data={data} effects={data.OverdoseSymptoms} numColumns={3} />
-
-                        {/* <Text style={{marginTop: 20}}>{data.BrandNames}</Text> */}
 
                     </View>
                 </View>
