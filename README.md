@@ -47,7 +47,7 @@ To design the application we used React Native and Expo as they were scalable fr
 
 ## 📖 What we learned
 - Albert: 
-- Ameya: 
+- Ameya: "This is the first time I used React Native. I heard of it before but I never used it until now. It was a really awesome experience. Additionally, learning about the frequnency of people taking the wrong medications was eye-opening and I'm glad to have helped developed this app."
 - Ankur: 
 - Harshal: 
 
