@@ -32,8 +32,7 @@ We used the Google Could Vision API to recognize the medication and that API tal
 To design the application we used React Native and Expo as they were scalable frameworks that allow us to develop cross-platform apps.
 
 ## 🧠 Challenges we ran into
-
-- Building the API
+- 
 - Scraping the data
 
 ## 🏅 Accomplishments that we're proud of
@@ -45,6 +44,12 @@ To design the application we used React Native and Expo as they were scalable fr
 - Creating a scalable application that lets us add more features that will make this app even more useful.
 
 ## 📖 What we learned
+- Albert:
+- Ankur:
+- Ameya:
+- Harshal:
 
 ## 🚀 What's next for Remedia
-We're genuinely just scratching the surface with Remedia. We have two 
+We're genuinely just scratching the surface with Remedia. We have two features we plan on adding:
+- Letting users take an image of their pill for search:  
+- Creating a medication scheduler: 
