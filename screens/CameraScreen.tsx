@@ -10,6 +10,7 @@ import { Col, Row, Grid } from "react-native-easy-grid";
 import { PinchGestureHandler } from 'react-native-gesture-handler';
 import Svg, { Rect } from 'react-native-svg';
 import ImageContext from '../hooks/imageContext';
+import dummyData from '../constants/dummyData.json'
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -82,8 +83,7 @@ export default function CameraScreen({ navigation }: any) {
           },
           features: [
             {
-              type: "TEXT_DETECTION",
-              maxResults: 10
+              type: "TEXT_DETECTION"
             }
           ]
         }
@@ -100,9 +100,6 @@ export default function CameraScreen({ navigation }: any) {
     })
 
     const visionData = await visionRequest.json()
-
-    console.log(visionData.responses[0].fullTextAnnotation.pages[0].blocks[0].paragraphs[0].words[0].symbols[0].text)
-
     const data = visionData.responses[0].fullTextAnnotation
 
     let words = []
@@ -121,9 +118,24 @@ export default function CameraScreen({ navigation }: any) {
       }
     }
 
-    setIsLoading(false)
-    setUri(manipImage.uri)
-    navigation.navigate('Home')
+    let check = true
+    for (let i = 0; i < words.length; i++) {
+
+      for (let j = 0; j < dummyData.length; j++) {
+        if (words[i] == dummyData[j]) {
+          check = false
+          setIsLoading(false)
+          setUri(manipImage.uri)
+          navigation.navigate("Details", { name: words[i] })
+        }
+      }
+    }
+
+    if (check) {
+      setIsLoading(false)
+      setUri(manipImage.uri)
+      navigation.navigate('Home')
+    }
 
 
   }

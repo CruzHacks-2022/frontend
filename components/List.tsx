@@ -45,18 +45,6 @@ const List = (props: any) => {
         [props.data]
     )
 
-    const renderItem = ({ item }: any) => {
-        // when no input, show all
-        if (props.searchPhrase === "") {
-            return <Item name={item} />;
-        }
-        // filter of the name
-        if (item.toUpperCase().startsWith(props.searchPhrase.toUpperCase().trim())) {
-            return <Item name={item} />;
-        }
-
-    };
-
     return (
         <SafeAreaView style={styles.list__container}>
             {props.data && <View>
