@@ -7,7 +7,7 @@ Remedia allows users to locate information about their medications through 3 met
 - Searching the brand name (e.g. Advil) or the scientific name (e.g. Ibuprofen)
 - Selecting the feature of a pill such as color, imprint, shape
 
-When the user does the following, they are given information about the medication and provided the following information:
+When the user does the following, they are given information from our automated information retrieval system about the medication and provided the following information:
 
 - How to store the medication
 - Side-effects (color-coded based on the severity)
