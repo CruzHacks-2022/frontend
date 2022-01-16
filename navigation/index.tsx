@@ -3,7 +3,7 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { Entypo, Feather, FontAwesome } from '@expo/vector-icons';
+import { Entypo, Feather, FontAwesome, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -11,15 +11,13 @@ import * as React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import CameraScreen from '../screens/CameraScreen';
 import DetailsScreen from '../screens/DetailsScreen';
+import PillScreen from '../screens/PillScreen';
 
 import TabOneScreen from '../screens/TabOneScreen';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
-import LinkingConfiguration from './LinkingConfiguration';
 
 export default function Navigation() {
   return (
     <NavigationContainer
-      linking={LinkingConfiguration}
       theme={DefaultTheme}>
       <RootNavigator />
     </NavigationContainer>
@@ -30,7 +28,7 @@ export default function Navigation() {
  * A root stack navigator is often used for displaying modals on top of all other content.
  * https://reactnavigation.org/docs/modal
  */
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
   return (
@@ -41,7 +39,8 @@ function RootNavigator() {
         component={DetailsScreen}
         // @ts-ignore
         options={({ route }) => ({ title: route.params.name })} />
-      <Stack.Screen name="Pic" component={CameraScreen} />
+      <Stack.Screen name="Prescription Bottle Mode" component={CameraScreen} />
+      <Stack.Screen name="Pill Mode" component={PillScreen} />
     </Stack.Navigator>
   );
 }
@@ -50,9 +49,9 @@ function RootNavigator() {
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
-const BottomTab = createBottomTabNavigator<RootTabParamList>();
+const BottomTab = createBottomTabNavigator();
 
-function BottomTabNavigator({navigation}:any) {
+function BottomTabNavigator({ navigation }: any) {
 
   return (
     <BottomTab.Navigator
@@ -62,25 +61,19 @@ function BottomTabNavigator({navigation}:any) {
         headerShown: false,
         tabBarActiveTintColor: "white",
       }}>
-      <BottomTab.Screen
-        name="Home"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<'Home'>) => ({
-          tabBarIcon: ({ color }) => <Entypo name="home" size={24} color="black" />,
-        })}
-      />
 
       <BottomTab.Screen
-        name="Pic"
+        name="Prescription Bottle Mode"
         component={CameraScreen}
-        options={() => ({   
+        options={() => ({
+          title: 'Prescription Bottle Mode',
           tabBarIcon: () => {
             return (
               <View style={{ justifyContent: 'center', marginTop: 'auto', marginBottom: 'auto' }}>
-                <TouchableOpacity onPress={() => { navigation.navigate('Pic') }}>
+                <TouchableOpacity onPress={() => { navigation.navigate('Prescription Bottle Mode') }}>
                   <View>
-                    <Feather
-                      name="camera"
+                    <FontAwesome5 
+                      name="prescription-bottle" 
                       size={24}
                       color="black"
                       style={{
@@ -89,6 +82,43 @@ function BottomTabNavigator({navigation}:any) {
                         marginBottom: 'auto'
                       }}
                     />
+                  </View>
+                </TouchableOpacity>
+              </View>
+            )
+          }
+        })}
+      />
+
+      <BottomTab.Screen
+        name="Home"
+        component={TabOneScreen}
+        options={({ navigation }) => ({
+          tabBarIcon: ({ color }) => <Entypo name="home" size={24} color="black" />,
+        })}
+      />
+
+      <BottomTab.Screen
+        name="Pill Mode"
+        component={CameraScreen}
+        options={() => ({
+          title: 'Pill Mode',
+          tabBarIcon: () => {
+            return (
+              <View style={{ justifyContent: 'center', marginTop: 'auto', marginBottom: 'auto' }}>
+                <TouchableOpacity onPress={() => { navigation.navigate('Pill Mode') }}>
+                  <View>
+                    <MaterialCommunityIcons 
+                      name="pill" 
+                      size={24}
+                      color="black"
+                      style={{
+                        alignSelf: 'center',
+                        marginTop: 'auto',
+                        marginBottom: 'auto'
+                      }}
+                    />
+                    
                   </View>
                 </TouchableOpacity>
               </View>
