@@ -4,6 +4,7 @@ import dummyData from '../constants/dummyData.json'
 
 import SearchBar from '../components/SearchBar';
 import List from '../components/List'
+import * as Animatable from 'react-native-animatable';
 
 const TabOneScreen = ({ navigation }: any) => {
   const [searchPhrase, setSearchPhrase] = useState("");
@@ -23,19 +24,22 @@ const TabOneScreen = ({ navigation }: any) => {
 
   return (
     <SafeAreaView style={styles.root}>
-      <SearchBar
-        searchPhrase={searchPhrase}
-        setSearchPhrase={setSearchPhrase}
-        clicked={clicked}
-        setClicked={setClicked}
-      />
+      <Animatable.Text animation="lightSpeedIn">
 
-      <List
-        searchPhrase={searchPhrase}
-        data={data}
-        setClicked={setClicked}
-        navigation={navigation}
-      />
+        <SearchBar
+          searchPhrase={searchPhrase}
+          setSearchPhrase={setSearchPhrase}
+          clicked={clicked}
+          setClicked={setClicked}
+        />
+
+        <List
+          searchPhrase={searchPhrase}
+          data={data}
+          setClicked={setClicked}
+          navigation={navigation}
+        />
+      </Animatable.Text>
 
 
     </SafeAreaView>

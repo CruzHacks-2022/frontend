@@ -1,17 +1,18 @@
 import React, { useCallback, useEffect, useState } from "react"
 import { StyleSheet, Text, View, Image, ScrollView, FlatList, ActivityIndicator } from 'react-native';
 import HorizontalScroll from "../components/HorizontalScroll";
+import * as Animatable from 'react-native-animatable';
 
 const DetailsScreen = ({ route }: any) => {
     const [ifLoad, setIfLoad] = useState(true)
     const [data, setData] = useState([] as any)
-    const { name } = route.params
+    // const { name } = route.params
 
     useEffect(() => {
         (async () => {
             var formData = new FormData();
 
-            formData.append("brand", name);
+            // formData.append("brand", name);
 
             const req = await fetch('https://webscraper-service-gkv32wdswa-ue.a.run.app/multi', {
                 method: 'POST',
@@ -36,45 +37,50 @@ const DetailsScreen = ({ route }: any) => {
 
             (<ScrollView style={styles.container}>
 
-<View style={styles.imgContainer}>
-                    {/* <Image source={require("../assets/images/samplePill.jpg")} style={styles.image} /> */}
-                </View>
-
-                <Text style={styles.drugName}>{data.Name}</Text>
-
-                {/* <View style={styles.infoContainer}>
-                    <View style={styles.infoBox}>
-                        <Image source={require("../assets/images/pillLogo.svg")} style={styles.infoBoxStyle} />
-                        <Text style={styles.info}>2 x pills</Text>
+                <Animatable.Text animation="lightSpeedIn">
+                    <View style={styles.imgContainer}>
+                        <Image source={require("../assets/images/samplePill.jpg")} style={styles.image} />
                     </View>
 
-                    <View style={styles.infoBox}>
-                        <Image source={require("../assets/images/timeLogo.svg")} style={styles.infoBoxStyle} />
-                        <Text style={styles.info}>2.5 mg</Text>
+                    <Text style={styles.drugName}>Name of Drug</Text>
+
+                    <View style={styles.infoContainer}>
+                        <View style={styles.infoBox}>
+                            <Image source={require("../assets/images/pillLogo.svg")} style={styles.infoBoxStyle} />
+                            <Text style={styles.info}>2 x pills</Text>
+                        </View>
+
+                        <View style={styles.infoBox}>
+                            <Image source={require("../assets/images/timeLogo.svg")} style={styles.infoBoxStyle} />
+                            <Text style={styles.info}>2.5 mg</Text>
+                        </View>
                     </View>
-                </View> */}
 
-                {/* <Text style={styles.drugName}>About Drug</Text> */}
+                    <Text style={styles.drugName}>About Drug</Text>
 
-                <View style={styles.briefDetails}>
-                    <View style={styles.pillDetals}>
-                    <Text style={styles.details}>{data.details}</Text>
-                        
-                        <Text style={{marginBottom: 20}}>{data.Diet}</Text>
+                    <View style={styles.briefDetails}>
+                        <View style={styles.pillDetals}>
+                            <Text>{data.Name}</Text>
+                            <Text style={styles.details}>{data.details}</Text>
 
-                        <Text style={{ marginBottom: 20 }}>{data.Store}</Text>
+                            <Text style={{ marginBottom: 20 }}>{data.Diet}</Text>
+
+                            <Text style={{ marginBottom: 20 }}>{data.Store}</Text>
 
 
-                        <Text style={styles.sideEffects}>Side-Effects</Text>
+                            <Text style={styles.sideEffects}>Side-Effects</Text>
 
-                        <HorizontalScroll data={data} effects={data.CombinedEffects} numColumns={5} />
+                            <HorizontalScroll data={data} effects={data.CombinedEffects} numColumns={5} />
 
-                        <Text style={styles.sideEffects}>Overdose Signs:</Text>
+                            <Text style={styles.sideEffects}>Overdose Signs:</Text>
 
-                        <HorizontalScroll data={data} effects={data.OverdoseSymptoms} numColumns={3} />
+                            <HorizontalScroll data={data} effects={data.OverdoseSymptoms} numColumns={3} />
 
+                            {/* <Text style={{marginTop: 20}}>{data.BrandNames}</Text> */}
+
+                        </View>
                     </View>
-                </View>
+                </Animatable.Text>
 
             </ScrollView>
             )

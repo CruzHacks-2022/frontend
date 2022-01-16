@@ -7,6 +7,7 @@ import ImageContext from "../hooks/imageContext"
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
 import { ScrollView } from "react-native-gesture-handler"
 import dummyData from '../constants/dummyData.json'
+import * as Animatable from 'react-native-animatable';
 
 let flipPosition: any = osName === "Android" ? StatusBar.currentHeight as number : 30
 
@@ -85,8 +86,8 @@ const FeedbackScreen = ({ navigation }: any) => {
 
             let temp = d.success.split(' ')
 
-            navigation.navigate("Details", {name:temp[0]})
-            
+            navigation.navigate("Details", { name: temp[0] })
+
         }
     }
 
@@ -98,39 +99,41 @@ const FeedbackScreen = ({ navigation }: any) => {
 
             :
             <ScrollView
-                
+
             >
-                <View style={{ backgroundColor: '#EEEEEE', marginBottom: 20, padding: 20, borderRadius: 3, shadowOpacity: 0.5, shadowColor: 'black', flexDirection: 'row', justifyContent: 'space-around' }}>
-                    <RadioForm
-                        radio_props={colorRadioProps}
-                        initial={0}
-                        formHorizontal={false}
-                        labelHorizontal={true}
-                        buttonColor={'#2196f3'}
-                        animation={true}
-                        onPress={(value: any) => { setColorVal(value) }}
+                <Animatable.Text animation="lightSpeedIn">
+                    <View style={{ backgroundColor: '#EEEEEE', marginBottom: 20, padding: 20, borderRadius: 3, shadowOpacity: 0.5, shadowColor: 'black', flexDirection: 'row', justifyContent: 'space-around' }}>
+                        <RadioForm
+                            radio_props={colorRadioProps}
+                            initial={0}
+                            formHorizontal={false}
+                            labelHorizontal={true}
+                            buttonColor={'#2196f3'}
+                            animation={true}
+                            onPress={(value: any) => { setColorVal(value) }}
+                        />
+                        <View style={{ margin: 20 }} />
+
+                        <RadioForm
+                            radio_props={shapeRadioProps}
+                            initial={0}
+                            formHorizontal={false}
+                            labelHorizontal={true}
+                            buttonColor={'#2196f3'}
+                            animation={true}
+                            onPress={(value: any) => { setShapeVal(value) }}
+                        />
+
+                    </View>
+                    <TextInput
+                        placeholder="Imprint"
+                        onChangeText={(res) => { setImprint(res) }}
                     />
-                    <View style={{ margin: 20 }} />
 
-                    <RadioForm
-                        radio_props={shapeRadioProps}
-                        initial={0}
-                        formHorizontal={false}
-                        labelHorizontal={true}
-                        buttonColor={'#2196f3'}
-                        animation={true}
-                        onPress={(value: any) => { setShapeVal(value) }}
-                    />
-
-                </View>
-                <TextInput
-                    placeholder="Imprint"
-                    onChangeText={(res) => { setImprint(res) }}
-                />
-
-                <TouchableOpacity style={styles.ButtonContainer} onPress={handleSubmit}>
-                    <Text style={styles.ButtonText}>Submit</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity style={styles.ButtonContainer} onPress={handleSubmit}>
+                        <Text style={styles.ButtonText}>Submit</Text>
+                    </TouchableOpacity>
+                </Animatable.Text>
 
             </ScrollView>
 
