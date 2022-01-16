@@ -3,12 +3,13 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { Entypo, FontAwesome } from '@expo/vector-icons';
+import { Entypo, Feather, FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { Pressable } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
+import CameraScreen from '../screens/CameraScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 
 import TabOneScreen from '../screens/TabOneScreen';
@@ -35,11 +36,12 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen 
-        name="Details" 
-        component={DetailsScreen} 
+      <Stack.Screen
+        name="Details"
+        component={DetailsScreen}
         // @ts-ignore
-        options={({route})=>({title: route.params.name})} />
+        options={({ route }) => ({ title: route.params.name })} />
+      <Stack.Screen name="Pic" component={CameraScreen} />
     </Stack.Navigator>
   );
 }
@@ -50,7 +52,7 @@ function RootNavigator() {
  */
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
-function BottomTabNavigator() {
+function BottomTabNavigator({navigation}:any) {
 
   return (
     <BottomTab.Navigator
@@ -64,7 +66,34 @@ function BottomTabNavigator() {
         name="Home"
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'Home'>) => ({
-          tabBarIcon: ({ color }) => <Entypo name="camera" size={24} color="black" />,
+          tabBarIcon: ({ color }) => <Entypo name="home" size={24} color="black" />,
+        })}
+      />
+
+      <BottomTab.Screen
+        name="Pic"
+        component={CameraScreen}
+        options={() => ({   
+          tabBarIcon: () => {
+            return (
+              <View style={{ justifyContent: 'center', marginTop: 'auto', marginBottom: 'auto' }}>
+                <TouchableOpacity onPress={() => { navigation.navigate('Pic') }}>
+                  <View>
+                    <Feather
+                      name="camera"
+                      size={24}
+                      color="black"
+                      style={{
+                        alignSelf: 'center',
+                        marginTop: 'auto',
+                        marginBottom: 'auto'
+                      }}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </View>
+            )
+          }
         })}
       />
 

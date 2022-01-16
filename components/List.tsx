@@ -26,16 +26,11 @@ const List = (props: any) => {
     const renderItem = ({ item }: any) => {
         // when no input, show all
         if (props.searchPhrase === "") {
-            return <Item name={item.Name} details={item.Brand} />;
+            return <Item name={item} />;
         }
         // filter of the name
-        if (item.Name.toUpperCase().includes(props.searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
-            return <Item name={item.Name} details={item.Brand} />;
-        }
-
-        // filter of the Brand
-        if (item.Brand.toUpperCase().includes(props.searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
-            return <Item name={item.Name} details={item.Brand} />;
+        if (item.toUpperCase().includes(props.searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
+            return <Item name={item} />;
         }
 
     };
@@ -43,18 +38,6 @@ const List = (props: any) => {
     return (
         <SafeAreaView style={styles.list__container}>
             {props.data && <View>
-                <FlatList
-                    data={props.data}
-                    // @ts-ignore   
-                    renderItem={renderItem}
-                    keyExtractor={keyExtractor}
-                />
-                <FlatList
-                    data={props.data}
-                    // @ts-ignore   
-                    renderItem={renderItem}
-                    keyExtractor={keyExtractor}
-                />
                 <FlatList
                     data={props.data}
                     // @ts-ignore   

@@ -36,31 +36,28 @@ const DetailsScreen = ({ route }: any) => {
         !ifLoad ?
 
             (<ScrollView style={styles.container}>
-                <Text>{data.BrandNames}</Text>
                 <Text style={styles.details}>{data.details}</Text>
-                <View style={styles.briefDetails}>
-                    <Image source={require("../assets/images/samplePill.jpg")}
-                        style={styles.img}
-                        resizeMode="center"
-                    ></Image>
-                </View>
-
-                <Text style={styles.pillDetals}>Overdose Signs:</Text>
-
-                <HorizontalScroll data={data} effects={data.OverdoseSymptoms} numColumns={3} />
 
                 <View style={styles.briefDetails}>
                     <View style={styles.pillDetals}>
+                        <Text style={{marginBottom: 20}}>{data.Diet}</Text>
+
+                        <Text style={{marginBottom: 20}}>{data.Overdose}</Text>
+
+                        <Text style={{marginBottom: 20}}>{data.Store}</Text>
+
+                        
                         <Text style={styles.sideEffects}>Side-Effects</Text>
 
                         <HorizontalScroll data={data} effects={data.CombinedEffects} numColumns={5} />
 
-                        <Text>{data.OverdoseText}</Text>
+                        <Text style={styles.sideEffects}>Overdose Signs:</Text>
+
+                        <HorizontalScroll data={data} effects={data.OverdoseSymptoms} numColumns={3} />
+
+                        <Text style={{marginTop: 20}}>{data.BrandNames}</Text>
+
                     </View>
-                    <Image source={require("../assets/images/chemFormula.png")}
-                        style={styles.img}
-                        resizeMode="center"
-                    ></Image>
                 </View>
 
             </ScrollView>
