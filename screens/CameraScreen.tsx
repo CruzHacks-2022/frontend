@@ -103,6 +103,24 @@ export default function CameraScreen({ navigation }: any) {
 
     console.log(visionData.responses[0].fullTextAnnotation.pages[0].blocks[0].paragraphs[0].words[0].symbols[0].text)
 
+    const data = visionData.responses[0].fullTextAnnotation
+
+    let words = []
+
+    for (let i = 0; i < data.pages.length; i++) {
+      for (let j = 0; j < data.pages[i].blocks.length; j++) {
+        for (let k = 0; k < data.pages[i].blocks[j].paragraphs.length; k++) {
+          for (let m = 0; m < data.pages[i].blocks[j].paragraphs[k].words.length; m++) {
+            let temp = ""
+            for (let n = 0; n < data.pages[i].blocks[j].paragraphs[k].words[m].symbols.length; n++) {
+              temp = temp + data.pages[i].blocks[j].paragraphs[k].words[m].symbols[n].text
+            }
+            words.push(temp)
+          }
+        }
+      }
+    }
+
     setIsLoading(false)
     setUri(manipImage.uri)
     navigation.navigate('Home')

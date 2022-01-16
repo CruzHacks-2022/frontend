@@ -14,13 +14,13 @@ const DetailsScreen = ({ route }: any) => {
 
             formData.append("brand", name);
 
-            const req = await fetch('http://10.0.0.222:8081/multi', {
+            const req = await fetch('https://webscraper-service-gkv32wdswa-ue.a.run.app/multi', {
                 method: 'POST',
                 body: formData
             })
 
             const data = await req.json()
-            await setData(data)
+            await setData(data.success)
 
             setIfLoad(false)
 
