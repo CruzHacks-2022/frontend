@@ -122,7 +122,7 @@ export default function CameraScreen({ navigation }: any) {
     for (let i = 0; i < words.length; i++) {
 
       for (let j = 0; j < dummyData.length; j++) {
-        if (words[i] == dummyData[j]) {
+        if (words[i].toLowerCase() == dummyData[j].toLowerCase()) {
           check = false
           setIsLoading(false)
           setUri(manipImage.uri)
@@ -137,18 +137,17 @@ export default function CameraScreen({ navigation }: any) {
       navigation.navigate('Home')
     }
 
-
   }
 
   const goBack = () => {
-    navigation.navigate('Home', { screen: "Start" })
+    navigation.navigate('Home')
   }
 
   useEffect(() => {
     (async () => {
       const { status } = await Camera.requestCameraPermissionsAsync();
       if (status !== 'granted') {
-        navigation.navigate('Home', { screen: "Start" })
+        navigation.navigate('Home')
       }
     })();
   }, []);

@@ -34,11 +34,7 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen
-        name="Details"
-        component={DetailsScreen}
-        // @ts-ignore
-        options={({ route }) => ({ title: route.params.name })} />
+      <Stack.Screen name="Details" component={DetailsScreen} />
       <Stack.Screen name="Prescription Bottle Mode" component={CameraScreen} />
       <Stack.Screen name="Pill Mode" component={PillScreen} />
     </Stack.Navigator>
@@ -93,8 +89,8 @@ function BottomTabNavigator({ navigation }: any) {
       <BottomTab.Screen
         name="Home"
         component={TabOneScreen}
-        options={({ navigation }) => ({
-          tabBarIcon: ({ color }) => <Entypo name="home" size={24} color="black" />,
+        options={() => ({
+          tabBarIcon: () => <Entypo name="home" size={24} color="black" />,
         })}
       />
 
