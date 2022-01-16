@@ -41,14 +41,15 @@ To design the application we used React Native and Expo as they were scalable fr
 
 - Scraping the data from the web in the given time frame.
 - Using the Google Cloud Vision API to recognize the image.
+- Developing an automated system that provides information about 6000+ drugs.
 - Building the full application in the given time frame.
 - Having an application with a strong design language that is clean and intuitive.
 - Creating a scalable application that lets us add more features that will make this app even more useful.
 
 ## 📖 What we learned
-- Albert: 
+- Albert: "What I learned while doing this app in my first hackathon was primarily webscraping and backend work. Beautiful soup is beautiful and sadly very very soupy navigating through disperate websites was complicated and many comprimises were made in creating the backend. Flask, Docker, and google cloud run were essential and I had a lot of fun working with backends and postman which lets me access the backend."
 - Ameya: "This is the first time I used React Native. I heard of it before but I never used it until now. It was a really awesome experience. Additionally, learning about the frequnency of people taking the wrong medications was eye-opening and I'm glad to have helped developed this app."
-- Ankur: "I learned to query data effectively. We had 6,000 lines of drug data so we have to query them effectively to make it work. It was my largest challenge. I learned how to use Google Cloud Vision API to find the pill from the pill bottles. I learned how to launch things into Cloud Run without having to deal with local backend." 
+- Ankur: "Cruzhacks 2022 is my first-ever hackathon and I learned to query data effectively. We had 6,000 lines of drug data so we have to query them effectively to make it work. It was my largest challenge. I learned how to use Google Cloud Vision API to find the pill from the pill bottles. I learned how to launch things into Cloud Run without having to deal with local backend." 
 - Harshal: 
 
 ## 🚀 What's next for Remedia
